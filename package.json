@@ -1,0 +1,24 @@
+{
+  "name": "AppConnect-Integration-Admin",
+  "version": "1.0.0",
+  "description": "Manage your AppConnect Integration instances",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://pwcdnaae@dev.azure.com/pwcdnaae/NEOM/_git/AppConnect-Integration-Admin"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "husky": "^8.0.2"
+  }
+}

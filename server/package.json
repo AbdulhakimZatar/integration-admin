@@ -9,11 +9,6 @@
     "lint": "eslint src/**/*.ts",
     "format": "eslint src/**/*.ts --fix"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn lint"
-    }
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
