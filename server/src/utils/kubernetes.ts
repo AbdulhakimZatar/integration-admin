@@ -7,5 +7,5 @@ kc.loadFromFile('../../.kube/config');
 export default kc;
 
 function test() {
-console.log('test');
+  console.log('test');
 }
