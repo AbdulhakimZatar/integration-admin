@@ -1,5 +1,6 @@
 export default (req, res, next) => {
   const error = new Error('Not Found');
   res.status(404);
-  next(error);
+  res.statusMessage = 'Not Found';
+  res.json({ error: error.message });
 };

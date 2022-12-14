@@ -1,7 +1,3 @@
-import { Pool } from 'pg';
-import { DATABASE_URL } from '../configs/env';
+import { PrismaClient } from '@prisma/client';
 
-export const pg = new Pool({
-  connectionString: DATABASE_URL,
-  ssl: false,
-});
+export const prisma = new PrismaClient();

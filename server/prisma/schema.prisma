@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Team {
+  id String @id @default(cuid())
+  name String @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  server Server?
+}
+
+model Server {
+  ip String @unique
+  status ServerStatus @default(Pending)
+  updatedAt DateTime @updatedAt
+  team Team @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  teamId String @unique
+}
+
+enum ServerStatus {
+  Pending
+  Running
+  Stopped
+}
