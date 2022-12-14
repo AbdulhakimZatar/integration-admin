@@ -19,10 +19,10 @@ export const theme = extendTheme(
       heading: 'Poppins',
       body: 'Poppins',
     },
-    colors: { ...proTheme.colors, brand: proTheme.colors.blue },
-    semanticTokens: {
-      colors: {
-        test: 'red',
+    colors: {
+      ...proTheme.colors,
+      brand: {
+        black: '#262626',
       },
     },
   },
