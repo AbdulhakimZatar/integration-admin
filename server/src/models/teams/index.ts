@@ -1,4 +1,3 @@
-import { ServerStatus, Team } from '@prisma/client';
 import { prisma } from '../../data';
 import { DEFAULT_KUBERNETES_NAMESPACE, SERVER_STATUS } from '../../utils/constants';
 import kubernetes from '../kubernetes';
@@ -67,16 +66,17 @@ class Teams {
             clearInterval(interval);
             resolve(true);
           }
-        }, 2000);
+        }, 4000);
       });
 
     await checkServiceIp();
-    return { message: 'Team created', results: team };
+    return team;
   }
 
   public async deleteTeam(name: string) {
+    let team;
     try {
-      await prisma.team.delete({
+      team = await prisma.team.delete({
         where: {
           name,
         },
@@ -92,31 +92,7 @@ class Teams {
       kubernetes.deleteService(name + '-svc', DEFAULT_KUBERNETES_NAMESPACE),
     ]);
 
-    return { message: 'Team deleted' };
-  }
-
-  public async updateTeam(name: string, payload: Team) {
-    try {
-      await prisma.team.update({
-        where: {
-          name,
-        },
-        data: {
-          ...payload,
-        },
-      });
-    } catch (err) {
-      if (err.code === 'P2025') {
-        throw { message: err.meta.cause, status: 404 };
-      } else if (err.meta.target.includes('name')) {
-        throw { message: 'Team already exists', status: 409 };
-      } else throw err;
-    }
-
-    await kubernetes.updateDeployment(name, payload.name, DEFAULT_KUBERNETES_NAMESPACE);
-    await kubernetes.updateService(name + '-svc', payload.name + '-svc', DEFAULT_KUBERNETES_NAMESPACE);
-
-    return { message: 'Team updated' };
+    return team;
   }
 }
 
