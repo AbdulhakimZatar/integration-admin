@@ -34,6 +34,7 @@ export const Teams = () => {
   const { mutate: createTeam, isLoading: isCreateTeamLoading }: { mutate: (name) => void; isLoading: boolean } =
     useMutation((newTeam) => {
       return axios.post('http://localhost:4000/api/v1/teams/' + newTeam).then((res) => {
+        setTeamName('');
         refetch();
         onClose();
         return res.data;
