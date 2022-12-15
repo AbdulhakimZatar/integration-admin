@@ -16,11 +16,14 @@
     "@emotion/styled": "^11.10.5",
     "@fontsource/poppins": "^4.5.10",
     "@types/node": "^18.11.13",
+    "axios": "^1.2.1",
     "framer-motion": "^6.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
-    "react-router-dom": "^6.4.5"
+    "react-query": "^3.39.2",
+    "react-router-dom": "^6.4.5",
+    "react-table": "^7.8.0"
   },
   "devDependencies": {
     "@chakra-ui/cli": "^2.2.0",

@@ -7,7 +7,7 @@ export const NavButton = ({ label, to, icon }: NavButtonProps) => {
   const navigate = useNavigate();
 
   return (
-    <Button as="a" href={to} variant="ghost" justifyContent="start" aria-current={match}>
+    <Button onClick={() => navigate(to)} variant="ghost" justifyContent="start" aria-current={match}>
       <HStack spacing="3">
         <Icon as={icon} boxSize="6" color="brand.black" />
         <Text color="brand.black">{label}</Text>

@@ -1,5 +1,6 @@
 import { Flex, Stack, Image, HStack, Heading } from '@chakra-ui/react';
 import { FiBarChart2, FiBookmark, FiCheckSquare, FiHome, FiUsers } from 'react-icons/fi';
+import { PAGES } from '../../routes';
 import { NavButton } from './NavButton';
 
 export const Sidebar = () => (
@@ -22,8 +23,8 @@ export const Sidebar = () => (
             </Heading>
           </HStack>
           <Stack mt="4" spacing="2">
-            <NavButton to="/" label="Home" icon={FiHome} />
-            <NavButton to="/teams" label="Teams" icon={FiBarChart2} />
+            <NavButton to={PAGES.HOME} label="Home" icon={FiHome} />
+            <NavButton to={PAGES.TEAMS} label="Teams" icon={FiBarChart2} />
             <NavButton to="/users" label="Users" icon={FiUsers} />
           </Stack>
         </Stack>
